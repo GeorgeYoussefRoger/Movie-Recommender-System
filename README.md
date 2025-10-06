@@ -23,31 +23,25 @@ Movie-Recommendation-System/
 ## Methodology
 
 1. Data Preprocessing
-
    - Load and merge TMDB Movies and Credits datasets.
    - Retain relevant columns: `movie_id`, `title`, `overview`, `genres`, `keywords`, `cast`, `crew`.
    - Handle missing values and export the clean dataset.
-
 2. Feature Engineering
-
    - Parse JSON-like fields using `ast.literal_eval()`.
    - Extract:
      - Top 3 cast members
      - Director name
      - Genre and keyword lists
    - Clean text data and combine all features into a single column called `tags`.
-
 3. Model Building
    - Convert tags into numerical vectors using TF-IDF Vectorizer.
    - Compute pairwise cosine similarity between all movie vectors.
    - Save model files (`movies.pkl`, `similarity.pkl`) for deployment.
 
 ## Dataset
-
-Source: [Kaggle - TMDB 5000 Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)
+- Source: [Kaggle - TMDB 5000 Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)
 
 ## Getting Started
-
 1. Clone this repository and install dependencies:
    ```
    git clone https://github.com/GeorgeYoussefRoger/Movie-Recommender-System.git
