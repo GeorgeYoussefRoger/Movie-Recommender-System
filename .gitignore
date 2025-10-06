@@ -1,0 +1,4 @@
+.venv/
+models/
+data/clean_movies.csv
+data/tags_movies.csv
