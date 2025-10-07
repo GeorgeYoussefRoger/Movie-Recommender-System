@@ -1,9 +1,38 @@
-# Movie Recommender System
+# 🎬 Movie Recommender System
+A Content-Based Movie Recommendation System that suggests movies similar to a given title using the TMDB 5000 Movies Dataset from Kaggle. The system combines metadata such as genres, keywords, cast, crew, and movie descriptions to create a similarity-based recommendation engine using TF-IDF vectorization and cosine similarity.
 
-A Content-Based Movie Recommendation System built using the TMDB 5000 Movies Dataset from Kaggle. It recommends similar movies based on a combination of metadata such as genres, keywords, cast, crew and movie descriptions using TF-IDF vectorization and cosine similarity.
+## 🚀 Features
+- Cleaned and merged TMDB movies and credits datasets
+- Extracted meaningful metadata (cast, crew, genres, keywords)
+- Created unified feature representation using tags
+- Used TF-IDF and cosine similarity to compute movie similarity
+- Interactive Streamlit web app for generating movie recommendations
 
-## Project Structure
+## 🧠 Methodology
+🧹 Data Preprocessing
+- Loaded and merged tmdb_5000_movies.csv and tmdb_5000_credits.csv
+- Selected key attributes: movie_id, title, overview, genres, keywords, cast, crew
+- Handled missing values and exported cleaned dataset
 
+🧩 Feature Engineering
+- Parsed JSON-like columns using ast.literal_eval()
+- Extracted top 3 cast members and director from crew
+- Processed and cleaned text data
+- Combined multiple metadata sources into a single descriptive feature column (tags)
+
+🤖 Model Building
+- Converted tags text into numerical vectors using TF-IDF Vectorizer
+- Computed pairwise cosine similarity to measure movie similarity
+- Serialized model components:
+   - movies.pkl — stores movie metadata
+   - similarity.pkl — stores cosine similarity matrix
+
+🧮 Recommendation Logic
+- Retrieve the selected movie from user input
+- Compute similarity scores with all other movies
+- Return top 5 most similar movies
+
+## 📂 Project Structure
 ```
 Movie-Recommendation-System/
 ├── data/
@@ -20,46 +49,38 @@ Movie-Recommendation-System/
 └── requirements.txt # Dependencies
 ```
 
-## Methodology
+## 🧰 Technologies Used
+- Python — pandas, scikit-learn
+- Natural Language Processing — TF-IDF Vectorizer, Cosine Similarity
+- Web App — Streamlit
 
-1. Data Preprocessing
-   - Load and merge TMDB Movies and Credits datasets.
-   - Retain relevant columns: `movie_id`, `title`, `overview`, `genres`, `keywords`, `cast`, `crew`.
-   - Handle missing values and export the clean dataset.
-2. Feature Engineering
-   - Parse JSON-like fields using `ast.literal_eval()`.
-   - Extract:
-     - Top 3 cast members
-     - Director name
-     - Genre and keyword lists
-   - Clean text data and combine all features into a single column called `tags`.
-3. Model Building
-   - Convert tags into numerical vectors using TF-IDF Vectorizer.
-   - Compute pairwise cosine similarity between all movie vectors.
-   - Save model files (`movies.pkl`, `similarity.pkl`) for deployment.
+## 📦 Installation & Usage
+1️⃣ Clone the repository
+```
+git clone https://github.com/GeorgeYoussefRoger/Movie-Recommender-System.git
+cd Movie-Recommender-System
+```
+2️⃣ Install dependencies
+```
+pip install -r requirements.txt
+```
+3️⃣ Generate model files
+- Run the Jupyter notebooks in the notebooks/ folder sequentially to prepare cleaned data and model artifacts.
+- This will generate the following files:
+   `data/clean_movies.csv`
+   `data/tags_movies.csv`
+   `models/movies.pkl`
+   `models/similarity.pkl`
 
-## Dataset
+4️⃣ Run the Streamlit app
+```
+streamlit run ui/app.py
+```
+
+## 📂 Dataset
 - Source: [Kaggle - TMDB 5000 Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)
+- Contains metadata for 5000+ popular movies
 
-## Getting Started
-1. Clone this repository and install dependencies:
-   ```
-   git clone https://github.com/GeorgeYoussefRoger/Movie-Recommender-System.git
-   ```
-   ```
-   cd Movie-Recommender-System
-   ```
-   ```
-   pip install -r requirements.txt
-   ```
-2. Run the Jupyter notebooks to generate required data and models
-
-   The following files will be created:
-
-   `data/clean_movies.csv` `data/tags_movies.csv`
-   `models/movies.pkl` `models/similarity.pkl`
-
-3. Run the Streamlit app
-   ```
-   streamlit run ui/app.py
-   ```
+## 📜 License
+- This project is licensed under the MIT License.
+- See the `LICENSE` file for more details.
