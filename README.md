@@ -44,9 +44,10 @@ Movie-Recommendation-System/
 │ ├── 3_model_building.ipynb # TF-IDF vectorization, similarity calculation
 ├── ui/
 │ └── app.py # Streamlit app for movie recommendations
-├── .gitignore
+├── requirements.txt # Dependencies
 ├── README.md # Project documentation
-└── requirements.txt # Dependencies
+├── .gitignore
+└── LICENSE
 ```
 
 ## 🧰 Technologies Used
