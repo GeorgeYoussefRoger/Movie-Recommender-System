@@ -45,14 +45,14 @@ A Content-Based Movie Recommendation System that suggests movies similar to a gi
 Movie-Recommendation-System/
 ├── data/
 │ ├── tmdb_5000_movies.csv          # Original TMDB 5000 movies dataset
-│ ├── tmdb_5000_credits.csv         # Cast and crew data corresponding to each movie
+│ └── tmdb_5000_credits.csv         # Cast and crew data corresponding to each movie
 ├── notebooks/
 │ ├── 1_data_preprocessing.ipynb    # Data cleaning, merging and missing value handling
 │ ├── 2_feature_engineering.ipynb   # Feature extraction
-│ ├── 3_model_building.ipynb        # TF-IDF vectorization, similarity calculation
+│ └── 3_model_building.ipynb        # TF-IDF vectorization, similarity calculation
 ├── ui/
-│ └── app.py                        # Streamlit app for movie recommendations
-├── recommender_utils.py            # Module containing recommendation and poster functions
+│ ├── app.py                        # Streamlit app for movie recommendations
+│ └── recommender_utils.py          # Module containing recommendation and poster functions
 ├── requirements.txt                # Dependencies
 ├── README.md                       # Project documentation
 ├── .gitignore
